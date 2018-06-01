@@ -1,31 +1,114 @@
-# MytestApp
+# Angular 6
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+## Creating new application
+Create new application using angular cli tool **ng**
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```sh
+ng new app
+cd app
+```
 
-## Code scaffolding
+## Run the local server
+```sh
+ng serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Using the cli to create components/module/directive etc ...
 
-## Build
+```sh
+ng generate component <component_name> # or using the shortcut
+ng g c <component_name>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+ng generate directive <directive_name> # or using the shortcut
+ng g d <directive_name>
 
-## Running unit tests
+ng generate module <module_name> # or using the shortcut
+ng g m <module_name>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Adding the router
+first we need to install the angular router module
 
-## Running end-to-end tests
+```sh
+npm install @angular/router --save
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+Import the router module and define the routes
 
-## Deploying to GitHub Pages
+```ts
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+import { Route } from '@angular/router';
+//import the components used
 
-## Further help
+const routes: Route[] = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: '**', // handle not found component
+    component: NotFoundComponent
+  }
+]
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+//add a file approuting.module.ts
+//import the needed imports while writing down the below code
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
+})
+
+export class AppRoutingModule{}
+```
+
+//in app.module.ts
+> **Note:** Don't forget to put the components inside the **declaration** //in our case notfoundcomponent only
+//Add in imports: AppRoutingModule 
+
+in app.component.html add:
+<app-header></app-header>
+
+    <div class="feature">hello feature</div>
+
+    <div class="body">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
+
+#### Define the menu links
+You should use the **routerLink**, **routerLinkActive** and **routerLinkActiveOptions** attribute to define the menu items
+
+```html
+<a routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}">Home</a>
+
+<a routerLinkActive="active"
+  routerLink="/about">About</a>
+
+<a routerLinkActive="active"
+  routerLink="/contact">Contact</a>
+```
+
+#### Add the RouterOutlet placeholder
+
+In the app component you should add the **router-outlet** component
+
+```html
+.... header
+<router-outlet></router-outlet>
+.... footer
+```
+
+
+### View Encapsulation
+There are three types of view encapsulation:
+ - None (don't isolate bl mara 😏)
+ - Emulated (isolate the inner styles using angular attributes)
+ - Native (isolate the inner styles using shadow dom native technique)
+

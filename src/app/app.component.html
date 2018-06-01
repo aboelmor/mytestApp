@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+    <div class="body">
+      <router-outlet></router-outlet>
+    </div>
+
+    
+  <div class="menu">
+      <a routerLinkActive="active" routerLink="/home" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    
+      <a *ngFor="let item of data" routerLinkActive="active"
+      [routerLink]="'/' + item.path">{{ item.text }}</a>
+    
+    </div>

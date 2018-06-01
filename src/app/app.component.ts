@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Title of app succesfully defined!';
+
+
+data = [
+  { path: 'home', text: 'Home' },
+  { path: 'about', text: 'About' },
+];
 }

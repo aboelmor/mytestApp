@@ -1,0 +1,53 @@
+Login:
+------------
+IE : https://ouvpn-uk.oracle.com/
+user: 5613558.user30
+pass: bQJns2Y83K
+
+then vnc: vncuser and vnctech from desktop
+
+host01 double click with pass oracle
+pdf is in vncuser home
+
+
+
+
+jar, war files directly in weblogic
+SOA applications in Fusion middleware EM or through Jdeveloper or through ant, maven or WLST
+
+managed servers for deployment and the admin server for administration
+on the managed server, the weblogic should be installed
+
+console starts the managed server through node manager
+if there is no node manager or it's down, we can start the managed server from scripting console
+for manaed server turn off, it can be done from both
+
+xa for multiple diverse db conx
+non xa just for one db -->oracle, sql, etc.
+
+pass: Formatech@admin
+
+user 
+
+10.160.76.86
+
+vncuser / vnctech
+
+dev vs production:
+--------------
+applications are auto deployed on dev, you just copy paste them in auto-deploy folder and it will be directly read and deployed by the admin server
+in dev, files are ato locked for edit, in prod, it should manually be locked
+
+
+
+----------------------------
+domain creation requires the installation of WLS
+
+admin server manages multiple managed servers
+i manage the admin server from console
+
+when packing, dnt forget to put -managed = true, because it is false by default; if true, it will create the managed servers as well (which is normally what we should do)
+
+multitenancy is only used for Java EE applications
+
+page 47

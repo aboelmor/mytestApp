@@ -22,8 +22,7 @@ console starts the managed server through node manager
 if there is no node manager or it's down, we can start the managed server from scripting console
 for manaed server turn off, it can be done from both
 
-xa for multiple diverse db conx
-non xa just for one db -->oracle, sql, etc.
+
 
 pass: Formatech@admin
 
@@ -50,4 +49,45 @@ when packing, dnt forget to put -managed = true, because it is false by default;
 
 multitenancy is only used for Java EE applications
 
-page 47
+session 3: administration console
+----------
+interface of admin server
+
+JDBC
+----------------
+generci datasource for a single db and gridlink is for multiple when I have RAC (Real application Cluster)
+global involves more than one database provider
+
+xa for multiple diverse db conx
+non xa just for one db -->oracle, sql, etc.
+
+when craeting a datasource, I can use non-xa driver and click on support global trx, it can be used as xa
+
+leak statemment: cnx byesta3mela el user bas mabifalleta (still 3el2ane) --> betnazil initial or smthing 
+
+
+java profiler bikhalle nekmouch el bottlnecks bel code
+
+
+
+
+
+
+
+page 157
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
